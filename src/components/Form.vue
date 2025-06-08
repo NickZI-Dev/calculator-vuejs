@@ -37,9 +37,10 @@ const props = defineProps([
         />
       </div>
       <div class="col-md-3">
-        <span class="form-control d-flex justify-content-center ms-3">{{
-          props.aritmeticaFuncional
-        }}</span>
+        <span
+          class="form-control d-flex text-center justify-content-center ms-3"
+          >{{ props.aritmeticaFuncional }}</span
+        >
       </div>
     </div>
   </form>

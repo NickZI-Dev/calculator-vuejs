@@ -35,7 +35,7 @@ const dividirValor = () => {
     state.result = dividir;
     return state.result;
   } else {
-    return "Error: divisão por zero";
+    return "Error: divisão por zero!";
   }
 };
 const aritmeticaFuncional = () => {
