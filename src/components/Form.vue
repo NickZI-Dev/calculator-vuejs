@@ -47,7 +47,7 @@ const props = defineProps([
 
 <style scoped>
 .input-number {
-  max-width: 640px;
+  max-width: 740px;
   width: 100%;
   padding: 24px;
   border-radius: 4px;
@@ -56,6 +56,6 @@ const props = defineProps([
 .input-number input,
 span,
 select {
-  font-size: 10px;
+  font-size: 14px;
 }
 </style>
