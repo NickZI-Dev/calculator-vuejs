@@ -28,9 +28,14 @@ const multiplicarValor = () => {
 const dividirValor = () => {
   const { primeiroValor } = state;
   const { segundoValor } = state;
-  return (state.result = parseInt(primeiroValor) / parseInt(segundoValor));
+  if (segundoValor !== 0 && primeiroValor !== 0) {
+    const dividir = parseInt(primeiroValor) / parseInt(segundoValor);
+    state.result = dividir;
+    return state.result;
+  } else {
+    return "Error: divisão por zero";
+  }
 };
-
 const aritmeticaFuncional = () => {
   const { aritmetica } = state;
 
@@ -84,27 +89,11 @@ const aritmeticaFuncional = () => {
               value="0"
             />
           </div>
-          <div class="col-md-2">
-            <button
-              type="submit"
-              class="btn btn-primary fw-bold ms-3"
-              @click="aritmeticaFuncional"
-            >
-              =
-            </button>
-          </div>
           <div class="col-md-3">
             <span
-              v-if="state.aritmetica === 'dividir'"
               class="form-control d-flex justify-content-center final-result ms-3"
-              >{{ state.result.toFixed(2) }}</span
+              >{{ aritmeticaFuncional() }}</span
             >
-            <span
-              v-else
-              class="form-control d-flex justify-content-center final-result ms-3"
-            >
-              {{ state.result }}
-            </span>
           </div>
         </div>
       </form>
@@ -113,6 +102,12 @@ const aritmeticaFuncional = () => {
 </template>
 
 <style scoped>
+* {
+  font-size: 10px;
+}
+h1 {
+  font-size: 2em;
+}
 .input-number {
   max-width: 640px;
   width: 100%;
