@@ -56,6 +56,6 @@ const props = defineProps([
 .input-number input,
 span,
 select {
-  font-size: 14px;
+  font-size: 22px;
 }
 </style>
