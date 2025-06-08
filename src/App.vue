@@ -1,5 +1,7 @@
 <script setup>
 import { reactive } from "vue";
+import Form from "./components/Form.vue";
+import Header from "./components/Header.vue";
 
 const state = reactive({
   aritmetica: "somar",
@@ -54,69 +56,16 @@ const aritmeticaFuncional = () => {
 
 <template>
   <div class="container">
-    <header class="mt-4">
-      <h1>Calculator-Vue.js</h1>
-    </header>
+    <Header></Header>
     <main class="mt-4">
-      <form @submit.prevent="" class="input-number">
-        <div class="row">
-          <div class="col-md-2">
-            <input
-              @change="(event) => (state.primeiroValor = event.target.value)"
-              type="number"
-              class="form-control text-center"
-              min="0"
-              value="0"
-            />
-          </div>
-          <div class="col-md-2">
-            <select
-              @change="(event) => (state.aritmetica = event.target.value)"
-              class="form-control text-center"
-            >
-              <option value="somar">+</option>
-              <option value="subtrair">-</option>
-              <option value="multiplicar">x</option>
-              <option value="dividir">÷</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <input
-              @change="(event) => (state.segundoValor = event.target.value)"
-              type="number"
-              class="form-control text-center"
-              min="0"
-              value="0"
-            />
-          </div>
-          <div class="col-md-3">
-            <span
-              class="form-control d-flex justify-content-center final-result ms-3"
-              >{{ aritmeticaFuncional() }}</span
-            >
-          </div>
-        </div>
-      </form>
+      <Form
+        :get-first-value="(event) => (state.primeiroValor = event.target.value)"
+        :change-sign="(event) => (state.aritmetica = event.target.value)"
+        :get-second-value="(event) => (state.segundoValor = event.target.value)"
+        :aritmetica-funcional="aritmeticaFuncional()"
+      ></Form>
     </main>
   </div>
 </template>
 
-<style scoped>
-* {
-  font-size: 10px;
-}
-h1 {
-  font-size: 2em;
-}
-.input-number {
-  max-width: 640px;
-  width: 100%;
-  padding: 24px;
-  border-radius: 4px;
-  background-color: #f1f1f1;
-}
-
-.final-result {
-  flex-wrap: wrap;
-}
-</style>
+<style scoped></style>
