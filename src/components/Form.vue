@@ -37,10 +37,9 @@ const props = defineProps([
         />
       </div>
       <div class="col-md-3">
-        <span
-          class="form-control d-flex text-center justify-content-center ms-3"
-          >{{ props.aritmeticaFuncional }}</span
-        >
+        <span class="form-control d-flex text-center justify-content-center">{{
+          props.aritmeticaFuncional
+        }}</span>
       </div>
     </div>
   </form>
@@ -54,9 +53,28 @@ const props = defineProps([
   border-radius: 4px;
   background-color: #f1f1f1;
 }
+
+span {
+  margin-left: 1.5rem;
+}
+
 .input-number input,
 span,
 select {
   font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .input-number {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  input,
+  select {
+    margin-bottom: 10px;
+  }
+  span {
+    margin-left: 0px;
+  }
 }
 </style>
